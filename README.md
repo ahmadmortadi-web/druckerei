@@ -1,6 +1,6 @@
 # Allaoui – Landing Page Mockups
 
-**Branch:** `nuovoweb` | **Projekt:** Insolvenz-Landing-Pages für Allaoui Graphic Machinery GmbH
+**Branch:** `Allaoui` | **Projekt:** Insolvenz-Landing-Pages für Allaoui Graphic Machinery GmbH
 
 Dieses Repository enthält HTML-Mockups für die neue Landing-Page-Kampagne der **Allaoui Graphic Machinery GmbH**, einem international tätigen Spezialisten für den Handel, die Bewertung und die Verwertung von Druck- und Medienmaschinen mit Sitz in Aachen.
 
@@ -110,4 +110,4 @@ Web: [www.allaoui.de](https://www.allaoui.de)
 
 ---
 
-*Branch `nuovoweb` – Stand: Maerz 2026*
+*Branch `Allaoui` – Stand: Maerz 2026*
