@@ -63,10 +63,13 @@
   @media(min-width:640px){.ref-grid{grid-template-columns:repeat(2,1fr)}}
   @media(min-width:1024px){.ref-grid{grid-template-columns:repeat(3,1fr)}}
   .ref-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e8edf5}
-  .ref-img-main{width:100%;height:160px;background:linear-gradient(135deg,#1a2a4a,#2a4a8a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;opacity:.7;position:relative}
+  .ref-img-main{width:100%;height:160px;background:#1a2a4a;position:relative;overflow:hidden}
+  .ref-img-main img{width:100%;height:100%;object-fit:cover}
+  .ref-img-main .overlay{position:absolute;inset:0;background:rgba(16,12,52,.4)}
   .ref-img-main .ref-name-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(16,12,52,.85));padding:20px 14px 10px;font-size:14px;font-weight:700;color:#fff}
   .ref-imgs-row{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-  .ref-img-sm{height:80px;background:linear-gradient(135deg,#2a3a5a,#3a5a9a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;opacity:.6}
+  .ref-img-sm{height:80px;overflow:hidden}
+  .ref-img-sm img{width:100%;height:100%;object-fit:cover}
   .ref-meta{padding:14px}
   .ref-tag{display:inline-block;background:var(--sb);color:var(--ib);font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;margin-bottom:8px;letter-spacing:.5px}
   .ref-meta h3{font-size:14px;font-weight:700;color:var(--tb);margin-bottom:4px}
@@ -204,10 +207,14 @@
   <div class="ref-grid">
     <!-- Card 1 -->
     <div class="ref-card">
-      <div class="ref-img-main">[Gebäude außen]<div class="ref-name-overlay">CPI Ebner & Spiegel</div></div>
+      <div class="ref-img-main">
+        <img src="assets/building1.jpg" alt="CPI Ebner &amp; Spiegel" />
+        <div class="overlay"></div>
+        <div class="ref-name-overlay">CPI Ebner &amp; Spiegel</div>
+      </div>
       <div class="ref-imgs-row">
-        <div class="ref-img-sm">[Halle innen]</div>
-        <div class="ref-img-sm">[Maschinen]</div>
+        <div class="ref-img-sm"><img src="assets/hall1.jpg" alt="" /></div>
+        <div class="ref-img-sm"><img src="assets/machine1.jpg" alt="" /></div>
       </div>
       <div class="ref-meta">
         <span class="ref-tag">Ulm</span>
@@ -217,10 +224,14 @@
     </div>
     <!-- Card 2 -->
     <div class="ref-card">
-      <div class="ref-img-main">[Gebäude außen]<div class="ref-name-overlay">Schreckhase</div></div>
+      <div class="ref-img-main">
+        <img src="assets/building2.jpg" alt="Schreckhase" />
+        <div class="overlay"></div>
+        <div class="ref-name-overlay">Schreckhase</div>
+      </div>
       <div class="ref-imgs-row">
-        <div class="ref-img-sm">[Halle innen]</div>
-        <div class="ref-img-sm">[Maschinen]</div>
+        <div class="ref-img-sm"><img src="assets/hall2.jpg" alt="" /></div>
+        <div class="ref-img-sm"><img src="assets/hall3.jpg" alt="" /></div>
       </div>
       <div class="ref-meta">
         <span class="ref-tag">Spangenberg</span>
@@ -231,10 +242,14 @@
     </div>
     <!-- Card 3 -->
     <div class="ref-card">
-      <div class="ref-img-main">[Gebäude außen]<div class="ref-name-overlay">Stürtz</div></div>
+      <div class="ref-img-main">
+        <img src="assets/hall3.jpg" alt="Stürtz" />
+        <div class="overlay"></div>
+        <div class="ref-name-overlay">Stürtz</div>
+      </div>
       <div class="ref-imgs-row">
-        <div class="ref-img-sm">[Halle innen]</div>
-        <div class="ref-img-sm">[Maschinen]</div>
+        <div class="ref-img-sm"><img src="assets/machine1.jpg" alt="" /></div>
+        <div class="ref-img-sm"><img src="assets/hall1.jpg" alt="" /></div>
       </div>
       <div class="ref-meta">
         <span class="ref-tag">Würzburg</span>
