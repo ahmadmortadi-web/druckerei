@@ -17,7 +17,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: var(--c0); background: #fff; }
 
-/* ── UTILS ── */
 .wrap    { max-width: 960px; margin: 0 auto; }
 .eyebrow { display: block; font-size: 14px; font-weight: 600; color: var(--c1); line-height: 1.75; }
 .h2      { font-size: clamp(1.6rem,4vw,2.2rem); font-weight: 700; letter-spacing: -.02em; color: var(--c0); }
@@ -25,7 +24,6 @@ body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: var(-
 .pill    { display: inline-block; background: rgba(255,255,255,.15); backdrop-filter: blur(4px);
            color: #fff; font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: var(--r); }
 
-/* ── BUTTONS ── */
 .btn       { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
              font-weight: 600; font-size: 14px; padding: 12px 28px; border-radius: var(--r); text-decoration: none; }
 .btn-red   { background: var(--c2); color: #fff; }
@@ -36,34 +34,28 @@ body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: var(-
 .btn-sm-red { background: var(--c2); color: #fff; font-size: 11px; font-weight: 700;
               padding: 5px 12px; border-radius: var(--r); text-decoration: none; display: inline-flex; }
 
-/* ── NAV ── */
 nav { position: sticky; top: 0; z-index: 50; height: 60px; display: flex; align-items: center;
       justify-content: space-between; padding: 0 20px; background: rgba(255,255,255,.88);
       backdrop-filter: blur(10px); border-bottom: 1px solid var(--cb); }
 
-/* ── SECTIONS ── */
-.sec     { padding: 56px 20px; }
-.sec-alt { background: var(--c3); }
+.sec      { padding: 56px 20px; }
+.sec-alt  { background: var(--c3); }
 .sec-dark { background: var(--c0); }
 
-/* ── HERO ── */
 .hero { padding: 64px 20px 48px; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; align-items: center; }
 
-/* ── STATS ── */
 .stats { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--cb); border-radius: 8px; overflow: hidden; }
 .stat  { padding: 16px 12px; text-align: center; border-right: 1px solid var(--cb); }
 .stat:last-child { border-right: none; }
 .stat-val { font-size: 1.5rem; font-weight: 900; color: var(--c1); }
-.stat-lbl { font-size: 16px; color: #9ca3af; margin-top: 2px; }
+.stat-lbl { font-size: 10px; color: #9ca3af; margin-top: 2px; }
 
-/* ── ARG LIST ── */
 .arg-list { display: grid; gap: 1px; background: var(--cb); border-radius: 8px; overflow: hidden; }
 .arg-item { background: #fff; padding: 20px; display: grid; grid-template-columns: 44px 1fr; gap: 16px; }
 .arg-num  { font-size: 2rem; font-weight: 900; color: var(--c1); line-height: 1; text-align: center; padding-top: 2px; }
 .arg-head { font-weight: 700; font-size: 15px; color: var(--c0); margin-bottom: 4px; }
 
-/* ── REF GRID ── */
 .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .ref-card { border-radius: 1.5rem; overflow: hidden; min-height: 200px; position: relative; }
 .ref-card .overlay { position: absolute; inset: 0;
@@ -71,7 +63,11 @@ nav { position: sticky; top: 0; z-index: 50; height: 60px; display: flex; align-
 .ref-card .ref-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; }
 .ref-title { font-weight: 800; font-size: 15px; color: #fff; margin-bottom: 8px; }
 
-/* ── STEPS ── */
+/* ── TRUST BANNER ── */
+.trust-banner { padding: 28px 20px; text-align: center; border-top: 1px solid var(--cb); border-bottom: 1px solid var(--cb); background: #fff; }
+.trust-banner p { font-size: clamp(1rem,3vw,1.35rem); font-weight: 700; letter-spacing: -.02em; color: var(--c0); }
+.trust-banner p span { color: var(--c1); }
+
 .step     { display: flex; gap: 16px; }
 .step-col { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 36px; }
 .step-dot { width: 36px; height: 36px; border-radius: 50%; background: var(--c0); color: var(--c3);
@@ -82,23 +78,20 @@ nav { position: sticky; top: 0; z-index: 50; height: 60px; display: flex; align-
 .step-head { font-weight: 700; font-size: 15px; color: var(--c0); margin-bottom: 4px; }
 .step-head.blue { color: var(--c1); }
 
-/* ── FAQ ── */
 .faq { border-top: 1px solid var(--cb); }
 .faq-item { border-bottom: 1px solid var(--cb); padding: 20px 0; }
 .faq-q { font-weight: 700; font-size: 15px; color: var(--c0); margin-bottom: 8px;
           display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .faq-q span { color: var(--c1); font-size: 18px; font-weight: 400; flex-shrink: 0; }
 
-/* ── CONTACT ── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .contact-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
                 border-radius: 16px; padding: 28px; }
 .contact-name { font-weight: 800; color: #fff; font-size: 18px; margin-bottom: 2px; }
 .contact-role { font-size: 13px; color: #4a5a80; margin-bottom: 24px; }
 .contact-info { border-top: 1px solid rgba(255,255,255,.07); padding-top: 16px;
-                color: #ffffff; font-size: 13px; line-height: 1.9; }
+                color: #fff; font-size: 13px; line-height: 1.9; }
 
-/* ── FOOTER ── */
 footer { background: var(--c0); padding: 48px 20px 0; }
 .footer-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; padding-bottom: 40px; }
 .footer-head { font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 16px; }
@@ -115,51 +108,30 @@ footer { background: var(--c0); padding: 48px 20px 0; }
              cursor: pointer; font-family: inherit; }
 .theme-btn.on { background: #fff; color: var(--c0); font-weight: 600; }
 
-/* ── BG GRADIENTS ── */
 .bg-1 { background: linear-gradient(135deg,#1a2a4a,#0d1830); }
 .bg-2 { background: linear-gradient(135deg,#0f1c38,#0a1428); }
 .bg-3 { background: linear-gradient(135deg,#162238,#0e1a30); }
 .bg-4 { background: linear-gradient(135deg,#101e34,#0a1628); }
 .bg-5 { background: linear-gradient(135deg,#0d1c32,#08121e); }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 640px) {
-  /* Nav */
   nav { padding: 0 16px; }
   nav .btn { padding: 8px 14px; font-size: 12px; }
-
-  /* Sections */
   .sec, .hero { padding: 40px 16px; }
-
-  /* Stats: 2×2 grid on mobile */
   .stats { grid-template-columns: repeat(2,1fr); }
   .stats .stat:nth-child(2) { border-right: none; }
   .stats .stat:nth-child(1),
   .stats .stat:nth-child(2) { border-bottom: 1px solid var(--cb); }
   .stat-val { font-size: 1.4rem; }
-
-  /* Arg list: smaller number */
   .arg-num { font-size: 1.6rem; }
-
-  /* Refs: single column */
   .ref-grid { grid-template-columns: 1fr; }
   .ref-card { min-height: 180px; }
-
-  /* Steps: tighter */
   .step-body { padding-bottom: 20px; }
-
-  /* Contact: stack */
   .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .contact-card { padding: 20px; }
-
-  /* Buttons full-width in contact */
   .contact-card .btn { width: 100%; }
-
-  /* Footer: stack all cols */
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .footer-grid > div:first-child { grid-column: auto; }
-
-  /* Footer bar: center */
   .footer-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 
@@ -185,11 +157,11 @@ footer { background: var(--c0); padding: 48px 20px 0; }
   <div class="wrap">
     <span class="eyebrow" style="margin-bottom:14px;">Insolvenz- & Eigenverwaltung · Druckerei-Verkauf</span>
     <h1 style="font-size:clamp(2rem,8vw,4.2rem);font-weight:700;line-height:1.04;letter-spacing:-.04em;">
-      Wir kaufen<br> komplette<br> Druckereibetriebe.
+      Wir kaufen<br>komplette<br>Druckereibetriebe.
     </h1>
     <div style="height:4px;width:60px;background:var(--c2);border-radius:2px;margin:20px 0;"></div>
     <p style="font-size:clamp(15px,2.5vw,17px);color:var(--cg);max-width:520px;line-height:1.7;margin-bottom:32px;">
-      Allaoui ist Ihr spezialisierter Partner für die Übernahme von Maschinenparks und Betriebsvermögen von Druckereien, Buchbindereien und Verpackungshersteller: Zuverlässige Zahlung, schnelle Abwicklung, besenreine Übergabe.
+      Allaoui ist Ihr spezialisierter Partner für die Übernahme von Maschinenparks und Betriebsvermögen von Druckereien, Buchbindereien und Verpackungsherstellern: Zuverlässige Zahlung, schnelle Abwicklung, besenreine Übergabe.
     </p>
     <div class="hero-actions">
       <a href="#kontakt" class="btn btn-red">Jetzt anfragen</a>
@@ -212,7 +184,7 @@ footer { background: var(--c0); padding: 48px 20px 0; }
     <div class="arg-list">
       <div class="arg-item"><div class="arg-num">01</div><div><div class="arg-head">Finanzkraft – kein Finanzierungsvorbehalt</div><p class="muted">Kauf aus eigener Liquidität. Keine Bankgespräche, keine Verzögerungen. Sofortige Liquidität für die Masse.</p></div></div>
       <div class="arg-item"><div class="arg-num">02</div><div><div class="arg-head">En bloc – ein Vertragspartner</div><p class="muted">Gesamter Maschinenpark inklusive Betriebsvermögen. Ein Partner statt dutzender Einzelkäufer – kein Koordinationsaufwand.</p></div></div>
-      <div class="arg-item"><div class="arg-num">03</div><div><div class="arg-head">Zügige Räumung statt laufende Mietkosten</div><p class="muted">Wir haben Betriebe mit über 20,000 qm in weniger als 2 Monaten geräumt und besenrein übergeben, inkl. EDV Löschung nach DIN 66399 und Entsorgung von chem. Sonderabfällen. </p></div></div>
+      <div class="arg-item"><div class="arg-num">03</div><div><div class="arg-head">Zügige Räumung statt laufende Mietkosten</div><p class="muted">Wir haben Betriebe mit über 20.000 qm in weniger als 2 Monaten geräumt und besenrein übergeben, inkl. EDV-Löschung nach DIN 66399 und Entsorgung von chem. Sonderabfällen.</p></div></div>
     </div>
   </div>
 </section>
@@ -251,6 +223,11 @@ footer { background: var(--c0); padding: 48px 20px 0; }
   </div>
 </section>
 
+<!-- TRUST BANNER -->
+<div class="trust-banner">
+  <p>Vertraulichkeit ist für uns selbstverständlich.&nbsp;<span>Ihr Anliegen behandeln wir diskret und professionell.</span></p>
+</div>
+
 <!-- PROZESS -->
 <section class="sec sec-alt">
   <div class="wrap">
@@ -261,7 +238,7 @@ footer { background: var(--c0); padding: 48px 20px 0; }
       <div class="step"><div class="step-col"><div class="step-dot">2</div><div class="step-line"></div></div><div class="step-body"><div class="step-head">Besichtigung &amp; Bewertung vor Ort</div><p class="muted">Marktgerechte Bewertung auf Basis von 40.000+ Transaktionsdaten – schnell und präzise.</p></div></div>
       <div class="step"><div class="step-col"><div class="step-dot">3</div><div class="step-line"></div></div><div class="step-body"><div class="step-head">Verbindliches Angebot &amp; Vertragsschluss</div><p class="muted">Kein Finanzierungsvorbehalt, keine Nachverhandlung. Planungssicherheit von Anfang an.</p></div></div>
       <div class="step"><div class="step-col"><div class="step-dot">4</div><div class="step-line"></div></div><div class="step-body"><div class="step-head">Demontage &amp; fachgerechter Abtransport</div><p class="muted">Professionelles Team übernimmt Demontage und Transport aller Maschinen und Anlagen.</p></div></div>
-      <div class="step"><div class="step-col"><div class="step-dot">5</div><div class="step-line"></div></div><div class="step-body"><div class="step-head">Besenreine Übergabe der Immobilie</div><p class="muted">Vollständig geräumte Halle, protokolliert und dokumentiert. Immobilie sofort verwertbar.</p></div></div>
+      <div class="step"><div class="step-col"><div class="step-dot">5</div></div><div class="step-body"><div class="step-head">Besenreine Übergabe der Immobilie</div><p class="muted">Vollständig geräumte Halle, protokolliert und dokumentiert. Immobilie sofort verwertbar.</p></div></div>
     </div>
   </div>
 </section>
@@ -309,7 +286,7 @@ footer { background: var(--c0); padding: 48px 20px 0; }
 </section>
 
 <!-- TAGLINE -->
-<div style="background:#fff;padding:24px;text-align:center;border-top:1px solid var(--cb);">
+<div style="background:#fff;padding:28px 20px;text-align:center;border-top:1px solid var(--cb);border-bottom:1px solid var(--cb);">
   <div style="font-size:clamp(1rem,3vw,1.6rem);font-weight:900;letter-spacing:-.02em;">
     Innovate.&nbsp;<span style="color:var(--c1);">Impress.</span>&nbsp;<span style="color:var(--c2);">Inspire.</span>
   </div>
