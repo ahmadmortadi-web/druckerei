@@ -89,11 +89,11 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      height: 60px;
+      height: 90px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 6px 20px;
       background: rgba(255, 255, 255, .88);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--cb);
@@ -126,7 +126,7 @@
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       border: 1px solid var(--cb);
       border-radius: 8px;
       overflow: hidden;
@@ -144,7 +144,7 @@
 
     .stat-val {
       font-size: 1.5rem;
-      font-weight: 900;
+      font-weight: 700;
       color: var(--c1);
     }
 
@@ -232,8 +232,9 @@
     }
 
     .ref-meta {
-      color: var(--c2);
+      color: var(--cg);
       font-size: 14px;
+      font-weight: 500;
       margin-bottom: 12px;
     }
 
@@ -639,10 +640,7 @@
 
   <!-- NAV -->
   <nav>
-    <svg xmlns="http://www.w3.org/2000/svg" width="160" viewBox="0 0 283.46 70">
-      <path fill="#100d34"
-        d="M220.01,24.79c-10.7,0-16.5,7.29-16.5,15.44s5.56,15.44,16.15,15.44,16.68-6.73,16.68-15.46c0-7.41-5.33-15.42-16.34-15.42ZM219.94,49.46c-5.35,0-8.2-4.37-8.2-9.24s2.57-9.23,8.11-9.23,8.19,4.47,8.19,9.35-2.57,9.12-8.1,9.12ZM156.8,13.04s-.07.03-.07.07v41.69s.03.07.07.07h7.93s.07-.03.07-.07V13.11s-.03-.07-.07-.07h-7.93ZM261.27,42.4c0,3.87-2.03,7.2-6.4,7.2s-6.48-3.45-6.48-7.3v-16.65s-.03-.07-.07-.07h-7.93s-.07.03-.07.07v17.91c0,8.59,4.79,12.11,10.93,12.11,2.52,0,4.39-.34,5.84-.92,2.15-.76,3.64-1.96,4.52-3.49.04.79.29,3.16.34,3.56,0,.04.03.06.07.06h7.24s.07-.03.07-.07v-29.14s-.03-.07-.07-.07h-7.93s-.07.03-.07.07v16.74ZM142.79,13.04s-.07.03-.07.07v41.69s.03.07.07.07h7.93s.07-.03.07-.07V13.11s-.03-.07-.07-.07h-7.93ZM275.46,25.59s-.07.03-.07.07v29.14s.03.07.07.07h7.93s.07-.03.07-.07v-29.14s-.03-.07-.07-.07h-7.93ZM283.39,13.04h-7.93s-.07.03-.07.07v7s.03.07.07.07h7.93s.07-.03.07-.07v-7s-.03-.07-.07-.07ZM185.16,24.75c-5.26,0-10.52,1.51-13.37,5.5-.02.03-.02.08.02.1l4.49,3.27s.06.02.09,0c2.21-2.04,5.61-2.93,8.63-2.93,3.8,0,5.93,1.67,5.93,3.7v2.03h-6.27c-8.55,0-15.3,2.12-15.3,9.74,0,4.59,3.17,9.51,11.27,9.51,5.73,0,9.08-1.72,10.64-4.41.04.79.29,3.16.34,3.56,0,.04.03.06.07.06h7.25s.07-.03.07-.07v-19.74c0-6.61-5.58-10.31-13.85-10.31ZM190.94,46.14c-.91,1.02-3.45,3.8-7.6,3.8-2.23,0-3.67-.47-4.59-1.22-1.03-.74-1.53-1.8-1.53-2.98,0-2.81,2.26-4.13,7.6-4.13h6.12v4.53ZM58.55,36.4h0c-.55-6.34-5.85-11.31-12.32-11.31s-11.78,4.97-12.32,11.31h-12.09v-.03s0-.03,0-.05c.29-12.97,11.26-23.29,24.37-23.29h.73v5.03c0,.06.06.09.11.06l13.55-8.62s.04-.09,0-.12L47.03.01s-.11,0-.11.06v4.89h-.73c-17.57,0-32.07,13.94-32.46,31.37,0,.03,0,.05,0,.07h-.06s0,0,0,0H.07s-.07.03-.07.07v1.88s.03.07.07.07h33.82c.48,6.4,5.81,11.45,12.33,11.45s11.85-5.05,12.33-11.45h12.07v.16c-.59,13.1-11.31,23.36-24.41,23.36-11.45,0-21.47-8.09-23.9-19.27,0-.03-.03-.05-.07-.05h-8.06s-.08.04-.07.08c1.21,7.49,5.05,14.36,10.83,19.36,5.91,5.12,13.46,7.94,21.27,7.94,8.48,0,16.51-3.26,22.62-9.18,6.09-5.91,9.59-13.81,9.87-22.26v-.15h13.66s.07-.03.07-.07v-1.88s-.03-.07-.07-.07h-33.81ZM122.92,24.75c-5.26,0-10.52,1.51-13.37,5.5-.02.03-.02.08.02.1l4.49,3.27s.06.02.09,0c2.21-2.04,5.61-2.93,8.63-2.93,3.8,0,5.93,1.67,5.93,3.7v2.03h-6.27c-8.55,0-15.3,2.12-15.3,9.74,0,4.59,3.17,9.51,11.27,9.51,5.73,0,9.08-1.72,10.64-4.41.04.79.29,3.16.34,3.56,0,.04.03.06.07.06h7.25s.07-.03.07-.07v-19.74c0-6.61-5.58-10.31-13.85-10.31ZM128.7,46.14c-.91,1.02-3.45,3.8-7.6,3.8-2.23,0-3.67-.47-4.59-1.22-1.03-.74-1.53-1.8-1.53-2.98,0-2.81,2.26-4.13,7.6-4.13h6.12v4.53Z" />
-    </svg>
+    <img style="width: 160px;" src="images/allaoui_Logo_RGB_pos.png">
     <a href="#kontakt" class="btn btn-red" style="padding:9px 18px;font-size:13px;">Kontakt aufnehmen</a>
   </nav>
 
@@ -666,19 +664,15 @@
       </div>
       <div class="stats">
         <div class="stat">
-          <div class="stat-val">40K+</div>
-          <div class="stat-lbl">Datensätze</div>
+          <div class="stat-val">#1</div>
+          <div class="stat-lbl">Bundesweiter Markführer bei Liquidierungen</div>
         </div>
         <div class="stat">
-          <div class="stat-val">15+</div>
-          <div class="stat-lbl">Großprojekte</div>
+          <div class="stat-val">3000+</div>
+          <div class="stat-lbl">Druckerei-Maschinen verwertet</div>
         </div>
         <div class="stat">
-          <div class="stat-val">2 Mon.</div>
-          <div class="stat-lbl">Rekord 5.000 qm</div>
-        </div>
-        <div class="stat">
-          <div class="stat-val">30+</div>
+          <div class="stat-val">20+</div>
           <div class="stat-lbl">Jahre Erfahrung</div>
         </div>
       </div>
@@ -879,7 +873,6 @@
         <div class="step">
           <div class="step-col">
             <div class="step-dot">5</div>
-            <div class="step-line"></div>
           </div>
           <div class="step-body">
             <div class="step-head">Besenreine Übergabe der Immobilie</div>
@@ -900,27 +893,27 @@
         häufigsten stellen.</p>
       <div class="faq">
         <div class="faq-item">
-          <div class="faq-q">Wie schnell können Sie räumen? <span>+</span></div>
+          <div class="faq-q">Wie schnell können Sie räumen? </div>
           <p style="font-size:14px;color:var(--cg);line-height:1.65;">Unser Rekord: 5.000 qm in 2 Monaten.</p>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Kaufen Sie auch einzelne Maschinen? <span>+</span></div>
+          <div class="faq-q">Kaufen Sie auch einzelne Maschinen? </div>
           <p style="font-size:14px;color:var(--cg);line-height:1.65;">Ja. Unsere Stärke ist der En-bloc-Erwerb. Bei
             Einzelverkäufen beraten wir zur besten Strategie und Erlösmaximierung.</p>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Wie läuft die Bewertung ab? <span>+</span></div>
+          <div class="faq-q">Wie läuft die Bewertung ab? </div>
           <p style="font-size:14px;color:var(--cg);line-height:1.65;">Besichtigung vor Ort, Abgleich mit 40.000+
             Transaktionsdaten, schriftliches Gutachten. Externe Sachverständige fragen bei uns die Marktwerte ab – wir
             bieten das direkt.</p>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Übernehmen Sie auch Nicht-Druckmaschinen? <span>+</span></div>
+          <div class="faq-q">Übernehmen Sie auch Nicht-Druckmaschinen? </div>
           <p style="font-size:14px;color:var(--cg);line-height:1.65;">Spezialisierung auf Druck, Medien, Verpackung und
             Weiterverarbeitung. Für andere Branchen empfehlen wir Partner aus unserem Netzwerk.</p>
         </div>
         <div class="faq-item" style="border-bottom:none;">
-          <div class="faq-q">Sind Sie versichert? <span>+</span></div>
+          <div class="faq-q">Sind Sie versichert? </div>
           <p style="font-size:14px;color:var(--cg);line-height:1.65;">Ja. Wir arbeiten mit Betriebshaftpflicht und
             vollständig versicherter Abwicklung. Details gerne auf Anfrage.</p>
         </div>
@@ -928,8 +921,16 @@
     </div>
   </section>
 
+
+  <!-- TAGLINE -->
+  <div style="background:#fff;padding:24px;text-align:center;border-top:1px solid var(--cb);">
+    <div style="font-size:clamp(1rem,3vw,1.6rem);font-weight:900;letter-spacing:-.02em;">
+      Innovate.&nbsp;<span style="color:var(--c1);">Impress.</span>&nbsp;<span style="color:var(--c2);">Inspire.</span>
+    </div>
+  </div>
+
   <!-- KONTAKT -->
-  <section id="kontakt" class="sec sec-dark">
+  <section style="border-bottom: 1px solid #f7f9fc;" id="kontakt" class="sec sec-dark">
     <div class="wrap contact-grid">
       <div>
         <span style="font-size:14px;font-weight:600;color:var(--c2);display:block;margin-bottom:12px;">Kontakt</span>
@@ -962,26 +963,14 @@
     </div>
   </section>
 
-  <!-- TAGLINE -->
-  <div style="background:#fff;padding:24px;text-align:center;border-top:1px solid var(--cb);">
-    <div style="font-size:clamp(1rem,3vw,1.6rem);font-weight:900;letter-spacing:-.02em;">
-      Innovate.&nbsp;<span style="color:var(--c1);">Impress.</span>&nbsp;<span style="color:var(--c2);">Inspire.</span>
-    </div>
-  </div>
+
 
   <!-- FOOTER -->
   <footer>
     <div class="wrap footer-grid">
       <div style="grid-column:1/-1;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="14" stroke="#004bff" stroke-width="1.8" />
-            <circle cx="16" cy="16" r="5" fill="#004bff" opacity=".3" />
-            <circle cx="16" cy="16" r="2.5" fill="#004bff" />
-            <path d="M16 4L16 9M16 23L16 28M4 16L9 16M23 16L28 16" stroke="#004bff" stroke-width="1.5"
-              stroke-linecap="round" />
-          </svg>
-          <span style="font-weight:800;font-size:20px;color:#fff;">allaoui</span>
+          <img style="width: 180px;" src="images/Allaoui_Logo_RGB_neg.png">
         </div>
         <div class="footer-head">Folgen Sie uns</div>
         <div style="display:flex;gap:14px;">
@@ -1010,9 +999,8 @@
       </div>
       <div>
         <div class="footer-head">Rechtliches</div>
-        <a href="#" class="footer-link">Datenschutzerklärung</a>
-        <a href="#" class="footer-link">Impressum</a>
-        <a href="#" class="footer-link">Cookie-Einstellungen</a>
+        <a href="https://allaoui.com/privacy-policy" class="footer-link">Datenschutzerklärung</a>
+        <a href="https://allaoui.com/imprint" class="footer-link">Impressum</a>
       </div>
       <div>
         <div class="footer-head">Kontakt</div>
