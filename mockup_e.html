@@ -32,7 +32,6 @@
       background: #fff;
     }
 
-    /* ── UTILS ── */
     .wrap {
       max-width: 960px;
       margin: 0 auto;
@@ -59,18 +58,6 @@
       line-height: 1.6;
     }
 
-    .pill {
-      display: inline-block;
-      background: rgba(255, 255, 255, .15);
-      backdrop-filter: blur(4px);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: var(--r);
-    }
-
-    /* ── BUTTONS ── */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -98,29 +85,6 @@
       color: #a0b0c8;
     }
 
-    .btn-white {
-      background: #fff;
-      color: var(--c0);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 5px 12px;
-      border-radius: var(--r);
-      text-decoration: none;
-      display: inline-flex;
-    }
-
-    .btn-sm-red {
-      background: var(--c2);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 5px 12px;
-      border-radius: var(--r);
-      text-decoration: none;
-      display: inline-flex;
-    }
-
-    /* ── NAV ── */
     nav {
       position: sticky;
       top: 0;
@@ -133,9 +97,9 @@
       background: rgba(255, 255, 255, .88);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--cb);
+      height: fit-content;
     }
 
-    /* ── SECTIONS ── */
     .sec {
       padding: 56px 20px;
     }
@@ -148,7 +112,6 @@
       background: var(--c0);
     }
 
-    /* ── HERO ── */
     .hero {
       padding: 64px 20px 48px;
     }
@@ -161,7 +124,6 @@
       align-items: center;
     }
 
-    /* ── STATS ── */
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -192,7 +154,6 @@
       margin-top: 2px;
     }
 
-    /* ── ARG LIST ── */
     .arg-list {
       display: grid;
       gap: 1px;
@@ -225,7 +186,6 @@
       margin-bottom: 4px;
     }
 
-    /* ── REF GRID ── */
     .ref-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -302,7 +262,6 @@
       margin-bottom: 4px;
     }
 
-    /* ── TRUST BANNER ── */
     .trust-banner {
       padding: 28px 20px;
       text-align: center;
@@ -320,7 +279,6 @@
       color: var(--c2);
     }
 
-    /* ── STEPS ── */
     .step {
       display: flex;
       gap: 16px;
@@ -372,11 +330,6 @@
       margin-bottom: 4px;
     }
 
-    .step-head.blue {
-      color: var(--c1);
-    }
-
-    /* ── FAQ ── */
     .faq {
       border-top: 1px solid var(--cb);
     }
@@ -404,7 +357,6 @@
       flex-shrink: 0;
     }
 
-    /* ── CONTACT ── */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -435,12 +387,11 @@
     .contact-info {
       border-top: 1px solid rgba(255, 255, 255, .07);
       padding-top: 16px;
-      color: #ffffff;
+      color: #fff;
       font-size: 13px;
       line-height: 1.9;
     }
 
-    /* ── FOOTER ── */
     footer {
       background: var(--c0);
       padding: 48px 20px 0;
@@ -496,57 +447,82 @@
       border-top: 1px solid rgba(255, 255, 255, .12);
     }
 
-    .theme-sw {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      background: rgba(255, 255, 255, .08);
-      border-radius: var(--r);
-      padding: 3px;
+    /* ── FLOATING NAV ── */
+    .float-nav {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--cb);
+      border-radius: 14px;
+      padding: 10px 8px;
+      box-shadow: 0 4px 20px rgba(16, 12, 52, .1);
     }
 
-    .theme-btn {
+    .float-nav a {
       display: flex;
       align-items: center;
-      gap: 4px;
-      padding: 5px 10px;
-      border-radius: var(--r);
-      font-size: 11px;
-      border: none;
-      background: transparent;
-      color: rgba(255, 255, 255, .5);
+      gap: 8px;
+      text-decoration: none;
       cursor: pointer;
-      font-family: inherit;
+      padding: 5px 6px;
+      border-radius: 8px;
+      transition: background .15s;
+      position: relative;
     }
 
-    .theme-btn.on {
-      background: #fff;
-      color: var(--c0);
+    .float-nav a:hover {
+      background: var(--c3);
+    }
+
+    .float-nav a .fn-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #c4cad4;
+      flex-shrink: 0;
+      transition: background .2s, transform .2s;
+    }
+
+    .float-nav a .fn-label {
+      font-size: 11px;
       font-weight: 600;
+      color: var(--cg);
+      white-space: nowrap;
+      transition: color .2s;
     }
 
-    /* ── BG GRADIENTS ── */
-    .bg-1 {
-      background: linear-gradient(135deg, #1a2a4a, #0d1830);
+    .float-nav a.active .fn-dot {
+      background: var(--c1);
+      transform: scale(1.3);
     }
 
-    .bg-2 {
-      background: linear-gradient(135deg, #0f1c38, #0a1428);
+    .float-nav a.active .fn-label {
+      color: var(--c0);
     }
 
-    .bg-3 {
-      background: linear-gradient(135deg, #162238, #0e1a30);
+    .float-nav a:hover .fn-dot {
+      background: var(--c1);
     }
 
-    .bg-4 {
-      background: linear-gradient(135deg, #101e34, #0a1628);
-    }
-
-    .bg-5 {
-      background: linear-gradient(135deg, #0d1c32, #08121e);
+    .float-nav a:hover .fn-label {
+      color: var(--c0);
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .float-nav {
+        display: none;
+      }
+    }
+
     @media (max-width: 640px) {
       nav {
         padding: 0 16px;
@@ -581,14 +557,6 @@
 
       .arg-num {
         font-size: 1.6rem;
-      }
-
-      .ref-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .ref-card {
-        min-height: 180px;
       }
 
       .step-body {
@@ -635,15 +603,39 @@
         grid-template-columns: 1fr;
         gap: 32px;
       }
-
-      .ref-card {
-        min-height: 190px;
-      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- FLOATING NAV -->
+  <nav class="float-nav" aria-label="Seitennavigation">
+    <a href="#hero">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Start</span>
+    </a>
+    <a href="#argumente">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Warum allaoui?</span>
+    </a>
+    <a href="#referenzen">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Referenzen</span>
+    </a>
+    <a href="#ablauf">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Ablauf</span>
+    </a>
+    <a href="#faq">
+      <span class="fn-dot"></span>
+      <span class="fn-label">FAQ</span>
+    </a>
+    <a href="#kontakt">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Kontakt</span>
+    </a>
+  </nav>
 
   <!-- NAV -->
   <nav>
@@ -655,7 +647,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section id="hero" class="hero">
     <div class="wrap">
       <span class="eyebrow" style="margin-bottom:14px;">Insolvenz- & Eigenverwaltung · Druckerei-Verkauf</span>
       <h1 style="font-size:clamp(2rem,8vw,4.2rem);font-weight:700;line-height:1.04;letter-spacing:-.04em;">
@@ -694,7 +686,7 @@
   </section>
 
   <!-- ARGUMENTE -->
-  <section class="sec sec-alt">
+  <section id="argumente" class="sec sec-alt">
     <div class="wrap">
       <span class="eyebrow" style="margin-bottom:8px;">Warum allaoui?</span>
       <h2 class="h2" style="margin-bottom:28px;">Warum mit Allaoui verwerten?</h2>
@@ -734,7 +726,6 @@
       <h2 class="h2" style="margin-bottom:28px;">Abgeschlossene Großprojekte</h2>
       <div class="ref-grid">
 
-        <!-- CPI Ebner & Spiegel -->
         <div class="ref-card">
           <div class="ref-img-main"><img src="https://cpi-print.de/de/wp-content/uploads/2019/09/DE_EbnerUndSpiegel.jpg"
               alt="CPI Ebner & Spiegel – Außen" loading="lazy"></div>
@@ -751,7 +742,6 @@
           </div>
         </div>
 
-        <!-- Schreckhase -->
         <div class="ref-card">
           <div class="ref-img-main"><img
               src="https://www.hna.de/assets/images/0/204/204989-1035107391-hohe-druckqualitaet-aus-spangenberg-seit-45-jahren-werden-im-doernbach-in-spangenberg-hochwertige-druckarbeiten-produziert-3Oea.jpg"
@@ -770,7 +760,6 @@
           </div>
         </div>
 
-        <!-- Stürtz GmbH -->
         <div class="ref-card">
           <div class="ref-img-main"><img
               src="https://images.wiwo.de/9fCkAW4XW4jp/cover/760/507/257/441/153/0/0.5/0.5/neustadt-wied-09052020-betriebsgebaeude-der-firma-stuertz-maschinenbau-gmbh-in-rott-bei-neustadt.jpeg"
@@ -789,7 +778,6 @@
           </div>
         </div>
 
-        <!-- Eberl & Kösel -->
         <div class="ref-card">
           <div class="ref-img-main"><img
               src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/IMG_3295-1024x492.jpg"
@@ -807,7 +795,6 @@
           </div>
         </div>
 
-        <!-- TSB Bagel -->
         <div class="ref-card">
           <div class="ref-img-main"><img
               src="https://rp-online.de/imgs/32/2/1/1/1/8/1/8/9/tok_094537d239efbc32cfaf78da9148bf57/w620_h465_x310_y232_50017601f6659309.jpg"
@@ -825,7 +812,6 @@
           </div>
         </div>
 
-        <!-- Qubus Media GmbH -->
         <div class="ref-card">
           <div class="ref-img-main"><img
               src="https://www.heidelberg.com/global/media/global_media/campaigns_1/energy_efficiency_in_the_pressroom/qubus_testimonial/QUBUSmedia_energyefficiency-workshop4-1600.jpg"
@@ -854,7 +840,7 @@
   </div>
 
   <!-- PROZESS -->
-  <section class="sec sec-alt">
+  <section id="ablauf" class="sec sec-alt">
     <div class="wrap">
       <span class="eyebrow" style="margin-bottom:8px;">Ablauf</span>
       <h2 class="h2" style="margin-bottom:32px;">So arbeiten wir zusammen</h2>
@@ -915,7 +901,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="sec">
+  <section id="faq" class="sec">
     <div class="wrap">
       <span class="eyebrow" style="margin-bottom:8px;">FAQ</span>
       <h2 class="h2" style="margin-bottom:8px;">Häufige Fragen</h2>
@@ -1061,6 +1047,34 @@
       <p style="font-size:13px;color:var(--c3);">© 2026 Allaoui Graphic Machinery GmbH. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
+
+  <script>
+    const sections = ['hero', 'argumente', 'referenzen', 'ablauf', 'faq', 'kontakt'];
+    const links = document.querySelectorAll('.float-nav a');
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.float-nav a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 
 </body>
 
