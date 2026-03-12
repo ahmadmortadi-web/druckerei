@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allaoui – Verwertung von Druck- & Medien-Assets</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <style>
+    :root {
+      --c-deep: #100C34;
+      --c-blue: #007DFF;
+      --c-steel: #E4F2FF;
+      --c-red: #EB0050;
+      --c-green: #00B894;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #100C34;
+      background: #fff;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: rgba(16, 12, 52, .97);
+      backdrop-filter: blur(8px);
+      padding: 10px 24px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-logo-text {
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -.3px;
+    }
+
+    .nav-cta {
+      background: #EB0050;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 18px;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+
+    .nav-cta:hover {
+      background: #c8003e;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 100px 24px 0;
+      background: #100C34;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: #007DFF;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 span {
+      color: #007DFF;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #8899b8;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .btn-red {
+      background: #EB0050;
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 13px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .15s;
+    }
+
+    .btn-red:hover {
+      background: #c8003e;
+    }
+
+    .btn-ghost-white {
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color .15s;
+    }
+
+    .btn-ghost-white:hover {
+      border-color: rgba(255, 255, 255, .6);
+    }
+
+    /* KPI CIRCLES – like allaoui.de hero */
+    .kpi-circles {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .kpi-circle {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px;
+      flex-shrink: 0;
+    }
+
+    .kpi-circle-num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #007DFF;
+      line-height: 1;
+    }
+
+    .kpi-circle-label {
+      font-size: 9px;
+      color: #6b80a0;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* HERO IMAGE BAND */
+    .hero-img-band {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4px;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    .img-ph {
+      background: #1a2244;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3a4a6a;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .img-ph.tall {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    /* LOGO STRIP */
+    .logo-strip {
+      background: #0a0820;
+      padding: 20px 24px;
+      overflow: hidden;
+    }
+
+    .logo-strip-inner {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .logo-strip-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .logo-item {
+      font-size: 13px;
+      font-weight: 700;
+      color: #3a4a6a;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* SECTION BASE */
+    .section {
+      padding: 72px 24px;
+    }
+
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: #007DFF;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .section-h2 {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 900;
+      color: #100C34;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      color: #6b7280;
+      font-size: 15px;
+      margin-bottom: 36px;
+      max-width: 540px;
+      line-height: 1.6;
+    }
+
+    /* ARGUMENT CARDS – like allaoui.de feature cards */
+    .arg-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .arg-card {
+      background: #fff;
+      border: 1px solid #eef2f8;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 1px 8px rgba(16, 12, 52, .05);
+      transition: box-shadow .2s;
+    }
+
+    .arg-card:hover {
+      box-shadow: 0 4px 24px rgba(16, 12, 52, .1);
+    }
+
+    .arg-icon {
+      width: 44px;
+      height: 44px;
+      background: #100C34;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .arg-title {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 5px;
+      color: #100C34;
+    }
+
+    .arg-text {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* REFERENZEN */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .ref-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #eef2f8;
+      box-shadow: 0 1px 8px rgba(16, 12, 52, .06);
+    }
+
+    .ref-img-main {
+      height: 200px;
+    }
+
+    .ref-img-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+
+    .ref-img-sm {
+      height: 100px;
+    }
+
+    .ref-body {
+      padding: 20px;
+      background: #fff;
+    }
+
+    .ref-title {
+      font-weight: 900;
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .ref-meta {
+      color: #EB0050;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #E4F2FF;
+      color: #007DFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .tag-dark {
+      display: inline-block;
+      background: #100C34;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      text-decoration: none;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    /* PROCESS */
+    .process-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .process-item {
+      display: flex;
+      gap: 16px;
+    }
+
+    .process-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 40px;
+    }
+
+    .process-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #100C34;
+      color: #007DFF;
+      font-weight: 900;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .process-dot.done {
+      background: #007DFF;
+      color: #fff;
+    }
+
+    .process-line {
+      width: 2px;
+      flex-grow: 1;
+      background: #E4F2FF;
+      margin: 4px 0;
+      min-height: 28px;
+    }
+
+    .process-content {
+      padding-bottom: 28px;
+      flex: 1;
+    }
+
+    .process-title {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 4px;
+      padding-top: 8px;
+    }
+
+    .process-text {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-list {
+      border-top: 1px solid #eef2f8;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eef2f8;
+      padding: 20px 0;
+    }
+
+    .faq-q {
+      font-weight: 800;
+      font-size: 15px;
+      color: #100C34;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-q::after {
+      content: "+";
+      color: #007DFF;
+      font-size: 20px;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.65;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background: #100C34;
+      padding: 72px 24px;
+    }
+
+    .contact-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 16px;
+      padding: 32px 24px;
+    }
+
+    .contact-name {
+      font-weight: 900;
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .contact-role {
+      color: #4a5a80;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .contact-btn-phone {
+      background: #007DFF;
+      color: #fff;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 10px;
+      transition: background .15s;
+    }
+
+    .contact-btn-phone:hover {
+      background: #0066cc;
+    }
+
+    .contact-btn-mail {
+      border: 1.5px solid rgba(255, 255, 255, .12);
+      color: #a0b0c8;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      margin: 20px 0;
+    }
+
+    .contact-address {
+      color: #3a4a6a;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .contact-quote {
+      color: #3a4a70;
+      font-size: 13px;
+      font-style: italic;
+      margin-top: 24px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #07051a;
+      padding: 20px 24px;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #2a3555;
+      font-size: 12px;
+    }
+
+    .footer a {
+      color: #2a3555;
+      text-decoration: none;
+    }
+
+    /* UTILITIES */
+    .bg-steel {
+      background: #E4F2FF;
+    }
+
+    .bg-deep {
+      background: #100C34;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ───── NAV ───── -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <img style="width:220px; filter: brightness(0) invert(1);"
+        src="https://cdn.allaoui.com/staging/assets/img/logo.svg" />
+    </div>
+    <a href="#kontakt" class="nav-cta">Kontakt aufnehmen</a>
+  </nav>
+
+  <!-- ───── HERO ───── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow">Insolvenz- & Eigenverwaltung · Druckerei-Verkauf</span>
+        <h1 class="hero-h1">
+          Wir übernehmen<br>
+          Ihren Maschinenpark.<br>
+          <span>Komplett. Sofort.</span><br>
+          En&nbsp;bloc.
+        </h1>
+        <p class="hero-sub">Allaoui ist Ihr spezialisierter Partner für die schnelle Übernahme und Verwertung von
+          Maschinenparks der Druck- und Medienbranche – vom Erstgespräch bis zur besenreinen Übergabe.</p>
+        <div class="hero-btns">
+          <a href="#kontakt" class="btn-red">Jetzt Kontakt aufnehmen</a>
+          <a href="#referenzen" class="btn-ghost-white">Referenzen ansehen</a>
+        </div>
+        <!-- KPI Circles -->
+        <div class="kpi-circles">
+          <div class="kpi-circle">
+            <span class="kpi-circle-num">40K+</span>
+            <span class="kpi-circle-label">Markt&shy;daten</span>
+          </div>
+          <div class="kpi-circle">
+            <span class="kpi-circle-num">15+</span>
+            <span class="kpi-circle-label">Groß&shy;projekte</span>
+          </div>
+          <div class="kpi-circle">
+            <span class="kpi-circle-num">2&nbsp;Mon.</span>
+            <span class="kpi-circle-label">Rekord 5.000&nbsp;qm</span>
+          </div>
+          <div class="kpi-circle">
+            <span class="kpi-circle-num">20+</span>
+            <span class="kpi-circle-label">Jahre Erfahrung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted-by strip -->
+  <div class="logo-strip">
+    <div class="logo-strip-inner">
+      <span
+        style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2a3a60;flex-shrink:0;margin-right:8px;">Abgewickelte
+        Projekte:</span>
+      <span class="logo-item">CPI Ebner & Spiegel</span>
+      <span style="color:#1e2a44;">·</span>
+      <span class="logo-item">Schreckhase</span>
+      <span style="color:#1e2a44;">·</span>
+      <span class="logo-item">Stürtz GmbH</span>
+      <span style="color:#1e2a44;">·</span>
+      <span class="logo-item">TSB Bagel</span>
+      <span style="color:#1e2a44;">·</span>
+      <span class="logo-item">Eberl & Kösel</span>
+      <span style="color:#1e2a44;">·</span>
+      <span class="logo-item">Qubus Media</span>
+      <span style="color:#1e2a44;">·</span>
+      <span class="logo-item">Print Arena</span>
+      <span style="color:#1e2a44;">·</span>
+      <span class="logo-item">Caho Druckerei</span>
+    </div>
+  </div>
+
+  <!-- ───── WARUM ALLAOUI ───── -->
+  <section class="section" style="background:#fff;">
+    <div class="section-inner">
+      <span class="eyebrow">Warum Allaoui?</span>
+      <h2 class="section-h2">Was Insolvenzverwalter<br>an uns schätzen</h2>
+      <p class="section-sub">Fünf Argumente, die in jedem Verfahren zählen.</p>
+      <div class="arg-grid">
+
+        <div class="arg-card">
+          <div class="arg-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007DFF" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+            </svg>
+          </div>
+          <div>
+            <div class="arg-title">Finanzkraft & Zahlungssicherheit</div>
+            <p class="arg-text">Kauf aus eigener Liquidität – ohne Finanzierungsvorbehalte und ohne Verzögerungen. Sie
+              erhalten Ihr Geld schnell und zuverlässig.</p>
+          </div>
+        </div>
+
+        <div class="arg-card">
+          <div class="arg-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007DFF" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+            </svg>
+          </div>
+          <div>
+            <div class="arg-title">En-bloc – ein Vertragspartner</div>
+            <p class="arg-text">Gesamter Maschinenpark inklusive Peripherie und Inventar. Ein Partner statt dutzender
+              Einzelkäufer – kein Koordinationsaufwand, kein Restposten-Risiko.</p>
+          </div>
+        </div>
+
+        <div class="arg-card">
+          <div class="arg-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007DFF" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+          </div>
+          <div>
+            <div class="arg-title">Schnelle besenreine Räumung</div>
+            <p class="arg-text">Produktionshallen vollständig geräumt. Immobilie sofort verwertbar – keine laufenden
+              Mietkosten für die Masse. Rekord: 5.000 qm in 2 Monaten.</p>
+          </div>
+        </div>
+
+        <div class="arg-card">
+          <div class="arg-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007DFF" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+          </div>
+          <div>
+            <div class="arg-title">40.000+ Transaktionsdaten</div>
+            <p class="arg-text">Externe Gutachter fragen bei uns die Marktwerte ab. Wir bieten Ihnen die Bewertung
+              direkt – schneller, präziser, aus einer Hand.</p>
+          </div>
+        </div>
+
+        <div class="arg-card">
+          <div class="arg-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007DFF" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <div>
+            <div class="arg-title">Gerichtsfeste Dokumentation</div>
+            <p class="arg-text">Lückenlose Unterlagen für Gläubigerausschuss und Gericht. Versicherte Abwicklung,
+              transparente Prozesse – jederzeit nachvollziehbar.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── REFERENZEN ───── -->
+  <section id="referenzen" class="section bg-steel">
+    <div class="section-inner">
+      <span class="eyebrow">Referenzen</span>
+      <h2 class="section-h2">Abgeschlossene<br>Großprojekte</h2>
+      <p class="section-sub">Ausgewählte Projekte aus der Insolvenz- und Direktverwertung.</p>
+      <div class="ref-grid">
+
+        <div class="ref-card">
+          <div class="ref-img-main" style="overflow:hidden;"><img
+              src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/IMG_3295-1024x492.jpg"
+              alt="CPI Ebner & Spiegel" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;">
+          </div>
+          <div class="ref-img-row">
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/IMG_3295-1024x492.jpg"
+                alt="CPI Ebner & Spiegel" loading="lazy"
+                style="width:100%;height:100px;object-fit:cover;display:block;"></div>
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/IMG_3295-1024x492.jpg"
+                alt="CPI Ebner & Spiegel" loading="lazy"
+                style="width:100%;height:100px;object-fit:cover;display:block;"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">CPI Ebner & Spiegel</div>
+            <div class="ref-meta"><b>
+                <Ulm< /b> · 5.000+ qm · En-bloc-Übernahme & Kompletträumung</div>
+            <span class="tag">En-bloc</span><span class="tag">5.000+ qm</span>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-img-main" style="overflow:hidden;"><img
+              src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/IMG_3241-1024x426.jpg"
+              alt="Druckerei Schreckhase" loading="lazy"
+              style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+          <div class="ref-img-row">
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/IMG_3241-1024x426.jpg"
+                alt="Druckerei Schreckhase" loading="lazy"
+                style="width:100%;height:100px;object-fit:cover;display:block;"></div>
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/IMG_3241-1024x426.jpg"
+                alt="Druckerei Schreckhase" loading="lazy"
+                style="width:100%;height:100px;object-fit:cover;display:block;"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">Druckerei Schreckhase</div>
+            <div class="ref-meta"><b>Spangenberg</b> · 600 Einzelpositionen</div>
+            <span class="tag">600 Positionen</span><a href="#" class="tag-dark">Pressebericht ↗</a>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-img-main" style="overflow:hidden;"><img
+              src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/Perspektive-1024x320.jpg" alt="Sturtz GmbH"
+              loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+          <div class="ref-img-row">
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/Perspektive-1024x320.jpg"
+                alt="Sturtz GmbH" loading="lazy" style="width:100%;height:100px;object-fit:cover;display:block;"></div>
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/Perspektive-1024x320.jpg"
+                alt="Sturtz GmbH" loading="lazy" style="width:100%;height:100px;object-fit:cover;display:block;"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">Stürtz GmbH</div>
+            <div class="ref-meta"><b>Würzburg</b> · 126 Maschinen</div>
+            <span class="tag">126 Maschinen</span><a href="#" class="tag-dark">Pressebericht ↗</a>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-img-main" style="overflow:hidden;"><img
+              src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/Bolero-1-1024x344.jpg" alt="TSB Bagel"
+              loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+          <div class="ref-img-row">
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/Bolero-1-1024x344.jpg" alt="TSB Bagel"
+                loading="lazy" style="width:100%;height:100px;object-fit:cover;display:block;"></div>
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://druckerei-insolvenz.de/wp-content/uploads/2022/06/Bolero-1-1024x344.jpg" alt="TSB Bagel"
+                loading="lazy" style="width:100%;height:100px;object-fit:cover;display:block;"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">TSB Bagel</div>
+            <div class="ref-meta"><b>Meineweh</b> · Weltweit größte Rollenoffset-Anlagen</div>
+            <span class="tag">Rollenoffset</span><span class="tag">Großanlage</span>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-img-main" style="overflow:hidden;"><img
+              src="https://jobs.b-ite.com/api/v1/assets/8852404e-2db2-4f26-8d2b-55719c1a1c27.jpeg" alt="Eberl & Koesel"
+              loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+          <div class="ref-img-row">
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://jobs.b-ite.com/api/v1/assets/8852404e-2db2-4f26-8d2b-55719c1a1c27.jpeg"
+                alt="Eberl & Koesel" loading="lazy" style="width:100%;height:100px;object-fit:cover;display:block;">
+            </div>
+            <div class="ref-img-sm" style="overflow:hidden;"><img
+                src="https://jobs.b-ite.com/api/v1/assets/8852404e-2db2-4f26-8d2b-55719c1a1c27.jpeg"
+                alt="Eberl & Koesel" loading="lazy" style="width:100%;height:100px;object-fit:cover;display:block;">
+            </div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">Eberl & Kösel</div>
+            <div class="ref-meta">Allgäu · Komplette Maschinenpark-Übernahme</div>
+            <a href="#" class="tag-dark">Pressebericht ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── PROZESS ───── -->
+  <section class="section" style="background:#fff;">
+    <div class="section-inner">
+      <span class="eyebrow">Ablauf</span>
+      <h2 class="section-h2">So arbeiten wir zusammen</h2>
+      <p class="section-sub">Von der ersten Anfrage bis zur gerichtsfesten Dokumentation – sechs klare Schritte.</p>
+      <div class="process-list">
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-dot">1</div>
+            <div class="process-line"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-title">Erstgespräch & Bedarfsanalyse</div>
+            <p class="process-text">Klärung Ihrer Situation, des Maschinenpark-Umfangs und Ihrer Zeitvorgaben.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-dot">2</div>
+            <div class="process-line"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-title">Besichtigung & Bewertung vor Ort</div>
+            <p class="process-text">Marktgerechte Bewertung auf Basis von 40.000+ Transaktionsdaten – schnell und
+              präzise.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-dot">3</div>
+            <div class="process-line"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-title">Verbindliches Angebot & Vertragsschluss</div>
+            <p class="process-text">Kein Finanzierungsvorbehalt, keine Nachverhandlung. Planungssicherheit von Anfang
+              an.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-dot">4</div>
+            <div class="process-line"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-title">Demontage & fachgerechter Abtransport</div>
+            <p class="process-text">Professionelles Team übernimmt Demontage und Transport aller Maschinen und Anlagen.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-dot">5</div>
+            <div class="process-line"></div>
+          </div>
+          <div class="process-content">
+            <div class="process-title">Besenreine Übergabe der Immobilie</div>
+            <p class="process-text">Vollständig geräumte Halle, protokolliert und dokumentiert. Immobilie sofort
+              verwertbar.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-dot done">6</div>
+          </div>
+          <div class="process-content">
+            <div class="process-title" style="color:#007DFF;">Abrechnung & Dokumentation</div>
+            <p class="process-text">Lückenlose Unterlagen für Gläubigerausschuss und Gericht. Transparent, vollständig,
+              gerichtsfest.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FAQ ───── -->
+  <section class="section bg-steel">
+    <div class="section-inner">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-h2">Häufige Fragen</h2>
+      <p class="section-sub">Antworten auf die Fragen, die Verwalter uns am häufigsten stellen.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Wie schnell können Sie räumen?</div>
+          <p class="faq-a">Abhängig vom Umfang typischerweise 4–12 Wochen. Unser Rekord: 5.000 qm in 2 Monaten.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Kaufen Sie auch einzelne Maschinen?</div>
+          <p class="faq-a">Ja. Unsere Stärke ist der En-bloc-Erwerb des gesamten Parks. Bei Einzelverkäufen beraten wir
+            gerne zur besten Strategie und Erlösmaximierung.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Wie läuft die Bewertung ab?</div>
+          <p class="faq-a">Besichtigung vor Ort, Abgleich mit 40.000+ Transaktionsdaten, schriftliches Gutachten. In
+            vielen Verfahren fragen externe Sachverständige bei uns die Marktwerte ab – wir bieten das direkt.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Übernehmen Sie auch Nicht-Druckmaschinen?</div>
+          <p class="faq-a">Wir sind spezialisiert auf Druck, Medien, Verpackung und Weiterverarbeitung. Für andere
+            Branchen empfehlen wir Partner aus unserem Netzwerk.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Sind Sie versichert?</div>
+          <p class="faq-a">Ja. Wir arbeiten mit Betriebshaftpflicht und vollständig versicherter Abwicklung. Details
+            gerne auf Anfrage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── KONTAKT ───── -->
+  <section id="kontakt" class="contact-section">
+    <div class="contact-inner">
+      <span class="eyebrow">Kontakt</span>
+      <h2 style="font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.1;">
+        Sprechen wir.<br><span style="color:#007DFF;">Unverbindlich.</span></h2>
+      <p style="color:#4a5a80;font-size:15px;margin-bottom:36px;max-width:420px;">Vertraulichkeit ist für uns
+        selbstverständlich. Ihr Anliegen behandeln wir diskret und professionell.</p>
+
+      <div class="contact-card" style="max-width:420px;">
+        <div class="contact-name">Omar Allaoui</div>
+        <div class="contact-role">Geschäftsführer, Allaoui Graphic Machinery GmbH</div>
+        <a href="tel:+492411892750" class="contact-btn-phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+          </svg>
+          +49 241 1892750
+        </a>
+        <a href="mailto:info@allaoui.de" class="contact-btn-mail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          info@allaoui.de
+        </a>
+        <hr class="contact-divider">
+        <div class="contact-address">
+          🌐 www.allaoui.de<br>
+          Nerscheider Weg 170<br>
+          52076 Aachen, Deutschland
+        </div>
+      </div>
+      <p class="contact-quote">„Vertraulichkeit ist für uns selbstverständlich. Ihr Anliegen behandeln wir diskret und
+        professionell."</p>
+    </div>
+  </section>
+
+  <!-- ───── FOOTER ───── -->
+  <footer class="footer">
+    <p>© 2026 Allaoui Graphic Machinery GmbH · Aachen &nbsp;·&nbsp; <a href="#">Impressum</a> &nbsp;·&nbsp; <a
+        href="#">Datenschutz</a></p>
+  </footer>
+
+</body>
+
+</html>
