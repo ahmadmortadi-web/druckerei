@@ -1,102 +1,1057 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Allaoui – Mockup Vorschau</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>allaoui – Verwertung von Druck- & Medien-Assets</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-    body { font-family: 'Inter', sans-serif; }
+    @import 'https://cdn.allaoui.com/production/assets/fonts/allaoui/font-index.css';
+
+    :root {
+      --c0: #100c34;
+      --c1: #004bff;
+      --c2: #eb0050;
+      --c3: #f7f9fc;
+      --cg: #6b7280;
+      --cb: #e5e7eb;
+      --r: 9999px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Allaoui, system-ui, -apple-system, sans-serif;
+      color: var(--c0);
+      background: #fff;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c1);
+      line-height: 1.75;
+    }
+
+    .h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--c0);
+    }
+
+    .muted {
+      color: var(--cg);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 28px;
+      border-radius: var(--r);
+      text-decoration: none;
+    }
+
+    .btn-red {
+      background: var(--c2);
+      color: #fff;
+    }
+
+    .btn-blue {
+      background: var(--c1);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      border: 1.5px solid rgba(255, 255, 255, .12);
+      color: #a0b0c8;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 20px;
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--cb);
+      height: fit-content;
+    }
+
+    .sec {
+      padding: 56px 20px;
+    }
+
+    .sec-alt {
+      background: var(--c3);
+    }
+
+    .sec-dark {
+      background: var(--c0);
+    }
+
+    .hero {
+      padding: 64px 20px 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      align-items: center;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--cb);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 16px 12px;
+      text-align: center;
+      border-right: 1px solid var(--cb);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-val {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--c1);
+    }
+
+    .stat-lbl {
+      font-size: 16px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .arg-list {
+      display: grid;
+      gap: 1px;
+      background: var(--cb);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .arg-item {
+      background: #fff;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+    }
+
+    .arg-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--c1);
+      line-height: 1;
+      text-align: center;
+      padding-top: 2px;
+    }
+
+    .arg-head {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--c0);
+      margin-bottom: 4px;
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .ref-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #eef2f8;
+      box-shadow: 0 1px 8px rgba(16, 12, 52, .06);
+    }
+
+    .ref-img-main img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      object-position: center;
+    }
+
+    .ref-img-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      object-position: center;
+    }
+
+    .ref-img-row img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      object-position: center;
+    }
+
+    .ref-body {
+      padding: 20px;
+      background: #fff;
+    }
+
+    .ref-title {
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--c0);
+      margin-bottom: 3px;
+    }
+
+    .ref-meta {
+      color: var(--cg);
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #E4F2FF;
+      color: #007DFF;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--r);
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .tag-dark {
+      display: inline-block;
+      background: var(--c0);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--r);
+      text-decoration: none;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .trust-banner {
+      padding: 28px 20px;
+      text-align: center;
+      background-color: var(--c0);
+    }
+
+    .trust-banner p {
+      font-size: clamp(1rem, 3vw, 1.35rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--c3);
+    }
+
+    .trust-banner p span {
+      color: var(--c2);
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+    }
+
+    .step-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 36px;
+    }
+
+    .step-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--c0);
+      color: var(--c3);
+      font-weight: 900;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-dot.blue {
+      background: var(--c1);
+      color: #fff;
+    }
+
+    .step-line {
+      width: 2px;
+      flex-grow: 1;
+      background: var(--cb);
+      margin: 4px 0;
+      min-height: 24px;
+    }
+
+    .step-body {
+      padding: 7px 0 24px;
+    }
+
+    .step-head {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--c0);
+      margin-bottom: 4px;
+    }
+
+    .faq {
+      border-top: 1px solid var(--cb);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--cb);
+      padding: 20px 0;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--c0);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-q span {
+      color: var(--c1);
+      font-size: 18px;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .contact-name {
+      font-weight: 800;
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+
+    .contact-role {
+      font-size: 13px;
+      color: #4a5a80;
+      margin-bottom: 24px;
+    }
+
+    .contact-info {
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      padding-top: 16px;
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    footer {
+      background: var(--c0);
+      padding: 48px 20px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      padding-bottom: 40px;
+    }
+
+    .footer-head {
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-link {
+      display: block;
+      color: #9ca3af;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: #fff;
+    }
+
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #9ca3af;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .footer-contact:hover {
+      color: #fff;
+    }
+
+    .footer-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0 24px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    /* ── FLOATING NAV ── */
+    .float-nav {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--cb);
+      border-radius: 14px;
+      padding: 10px 8px;
+      box-shadow: 0 4px 20px rgba(16, 12, 52, .1);
+    }
+
+    .float-nav a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 5px 1px;
+      border-radius: 8px;
+      transition: background .15s;
+      position: relative;
+    }
+
+    .float-nav a:hover {
+      background: var(--c3);
+    }
+
+    .float-nav a .fn-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #c4cad4;
+      flex-shrink: 0;
+      transition: background .2s, transform .2s;
+    }
+
+    .float-nav a .fn-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cg);
+      white-space: nowrap;
+      transition: color .2s;
+    }
+
+    .float-nav a.active .fn-dot {
+      background: var(--c1);
+      transform: scale(1.3);
+    }
+
+    .float-nav a.active .fn-label {
+      color: var(--c0);
+    }
+
+    .float-nav a:hover .fn-dot {
+      background: var(--c1);
+    }
+
+    .float-nav a:hover .fn-label {
+      color: var(--c0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1250px) {
+      .float-nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      nav .btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .sec,
+      .hero {
+        padding: 40px 16px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats .stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .stats .stat:nth-child(1),
+      .stats .stat:nth-child(2) {
+        border-bottom: 1px solid var(--cb);
+      }
+
+      .stat-val {
+        font-size: 1.4rem;
+      }
+
+      .arg-num {
+        font-size: 1.6rem;
+      }
+
+      .step-body {
+        padding-bottom: 20px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .contact-card {
+        padding: 20px;
+      }
+
+      .contact-card .btn {
+        width: 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-grid>div:first-child {
+        grid-column: auto;
+      }
+
+      .footer-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 768px) {
+
+      .sec,
+      .hero {
+        padding: 48px 20px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
   </style>
 </head>
-<body class="bg-gray-950 min-h-screen">
 
-  <!-- Header / Banner -->
-  <header class="bg-gray-900 border-b border-gray-800 px-6 py-4">
-    <div class="max-w-5xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></div>
-        <span class="text-yellow-400 text-xs font-semibold tracking-widest uppercase">Preview Mode</span>
+<body>
+
+  <!-- FLOATING NAV -->
+  <nav class="float-nav" aria-label="Seitennavigation">
+    <a href="#hero">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Start</span>
+    </a>
+    <a href="#argumente">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Warum Allaoui?</span>
+    </a>
+    <a href="#referenzen">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Referenzen</span>
+    </a>
+    <a href="#ablauf">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Ablauf</span>
+    </a>
+    <a href="#faq">
+      <span class="fn-dot"></span>
+      <span class="fn-label">FAQ</span>
+    </a>
+    <a href="#kontakt">
+      <span class="fn-dot"></span>
+      <span class="fn-label">Kontakt</span>
+    </a>
+  </nav>
+
+  <!-- NAV -->
+  <nav>
+    <img style="width: 160px;" src="images/allaoui_Logo_RGB_pos.png">
+    <a href="#kontakt" class="btn btn-red" style="padding:9px 18px;font-size:13px;">Kontakt aufnehmen</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="wrap">
+      <span class="eyebrow" style="margin-bottom:14px;">Betriebsschließung · Insolvenz · Eigenverwaltung ·
+        Sanierung</span>
+      <h1 style="font-size:clamp(2rem,8vw,4.2rem);font-weight:700;line-height:1.04;letter-spacing:-.04em;">
+        Wir kaufen<br> komplette<br> Druckereibetriebe.
+      </h1>
+      <div style="height:4px;width:60px;background:var(--c2);border-radius:2px;margin:20px 0;"></div>
+      <p style="font-size:clamp(15px,2.5vw,17px);color:var(--cg);max-width:520px;line-height:1.7;margin-bottom:32px;">
+        Allaoui ist Spezialist für die Übernahme von Maschinenparks und Betriebsvermögen von Druckereien,
+        Buchbindereien und Verpackungshersteller: Zuverlässige Zahlung, schnelle Abwicklung, besenreine Übergabe.
+      </p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-red">Jetzt anfragen</a>
+        <a href="#referenzen"
+          style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--c0);text-decoration:none;">Referenzen
+          ansehen →</a>
       </div>
-      <span class="text-gray-500 text-xs">Branch: Allaoui · druckerei-insol.de</span>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">#1</div>
+          <div class="stat-lbl">Bundesweiter Markführer bei Liquidierungen</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">3000+</div>
+          <div class="stat-lbl">Druckerei-Maschinen verwertet</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">20+</div>
+          <div class="stat-lbl">Jahre Erfahrung</div>
+        </div>
+      </div>
     </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-6 py-16 text-center">
-    <div class="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/30 rounded-full px-4 py-1.5 mb-6">
-      <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
-      <span class="text-yellow-400 text-xs font-medium tracking-wide">GitHub Pages · Live Preview</span>
-    </div>
-    <h1 class="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
-      Allaoui Graphic Machinery<br/>
-      <span class="text-yellow-400">Landing Page Mockups</span>
-    </h1>
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-      Wählen Sie eine Variante aus, um die Vorschau direkt im Browser zu öffnen.
-      Alle Seiten sind vollständig statisch – keine Build-Pipeline erforderlich.
-    </p>
   </section>
 
-  <!-- Mockup Cards -->
-  <main class="max-w-5xl mx-auto px-6 pb-20">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-      <!-- Mockup E -->
-      <a href="mockup_e.html" class="group relative block rounded-2xl bg-gray-900 border border-gray-800 hover:border-orange-400/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-400/5">
-        <div class="flex items-start justify-between mb-4">
-          <div class="flex items-center gap-2">
-            <span class="w-8 h-8 rounded-lg bg-orange-400/10 flex items-center justify-center text-orange-400 font-bold text-sm">E</span>
-            <span class="text-xs font-medium text-gray-500 uppercase tracking-widest">Variante E</span>
+  <!-- ARGUMENTE -->
+  <section id="argumente" class="sec sec-alt">
+    <div class="wrap">
+      <span class="eyebrow" style="margin-bottom:8px;">Warum Allaoui?</span>
+      <h2 class="h2" style="margin-bottom:28px;">Warum mit Allaoui verwerten?</h2>
+      <div class="arg-list">
+        <div class="arg-item">
+          <div class="arg-num">01</div>
+          <div>
+            <div class="arg-head">Garantierte Sofort-Zahlung</div>
+            <p class="muted">Kauf aus eigener Liquidität. Keine Bankgespräche, keine Verzögerungen. Sofortige Liquidität
+              für die Masse.</p>
           </div>
-          <svg class="w-5 h-5 text-gray-600 group-hover:text-orange-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </div>
-        <h2 class="text-xl font-bold text-white mb-2">Mockup E</h2>
-        <p class="text-gray-400 text-sm leading-relaxed">Fünfte Gestaltungsvariante – „Light Editorial" mit weißem Hero, maximaler Whitespace und typografiegeführtem Layout.</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="text-xs bg-gray-800 text-gray-400 rounded-full px-3 py-1">Hero + CTA</span>
-          <span class="text-xs bg-gray-800 text-gray-400 rounded-full px-3 py-1">Bento Referenzen</span>
-          <span class="text-xs bg-gray-800 text-gray-400 rounded-full px-3 py-1">Kontakt</span>
+        <div class="arg-item">
+          <div class="arg-num">02</div>
+          <div>
+            <div class="arg-head">Ein Ansprechpartner für alle Assets</div>
+            <p class="muted">Statt mit mehreren Interessenten zu verhandeln und einzelne Abholungen zu koordinieren,
+              übernimmt Allaoui den gesamten Maschinenpark inklusive Betriebsvermögen und wickelt alles aus einer Hand
+              ab.</p>
+          </div>
         </div>
-      </a>
-
+        <div class="arg-item">
+          <div class="arg-num">03</div>
+          <div>
+            <div class="arg-head">Zügige Räumung statt laufende Mietkosten</div>
+            <p class="muted">Wir haben Betriebe mit über 20,000 qm in weniger als 2 Monaten geräumt und besenrein
+              übergeben, inkl. EDV Löschung nach DIN 66399 und Entsorgung von chem. Sonderabfällen. </p>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Info Box -->
-    <div class="mt-10 rounded-2xl bg-gray-900 border border-gray-800 p-6 flex flex-col md:flex-row gap-4 items-start">
-      <div class="flex-shrink-0">
-        <div class="w-10 h-10 rounded-xl bg-yellow-400/10 flex items-center justify-center">
-          <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  <!-- REFERENZEN -->
+  <section id="referenzen" class="sec">
+    <div class="wrap">
+      <span class="eyebrow" style="margin-bottom:8px;">Referenzen</span>
+      <h2 class="h2" style="margin-bottom:28px;">Abgeschlossene Großprojekte</h2>
+      <div class="ref-grid">
+
+        <div class="ref-card">
+          <div class="ref-img-row">
+            <div><img src="images/eberl_koesel_aussen.webp" alt="Eberl & Kösel – Maschine" loading="lazy"></div>
+            <div><img src="images/eberl_koesel_ref_innen.webp" alt="Eberl & Kösel – Innen" loading="lazy"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">Eberl &amp; Kösel, Altusried</div>
+            <div class="ref-meta">Allgäu · Komplette Maschinenpark-Übernahme</div>
+            <a href="https://allaoui.com/de/news/allaoui-acquires-machinery-and-fixed-assets-from-eberl-koesel"
+              class="tag-dark">Pressebericht ↗</a>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-img-row">
+            <div><img src="images/EbnerUndSpiegel_insolvenz.webp" alt="CPI Ebner & Spiegel – Außen" loading="lazy">
+            </div>
+            <div><img src="images/hunkeler_cpi_referenz.webp" alt="CPI Ebner & Spiegel – Maschine" loading="lazy"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">CPI Ebner &amp; Spiegel, Ulm</div>
+            <div class="ref-meta"> </div>
+            <span class="tag">Räumung des gesamten Maschinenparks</span>
+
+            <span class="tag">5.000+ qm auf 2 Etagen</span>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-img-row">
+            <div><img src="images/schreckhase_insolvenz_außen.webp" alt="Druckerei Schreckhase – Außen" loading="lazy">
+            </div>
+            <div><img src="images/Schreckhase_insolvenz.webp" alt="Druckerei Schreckhase – Innen" loading="lazy"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">Druckerei Schreckhase, Spangenberg</div>
+            <div class="ref-meta"> </div>
+            <span class="tag">600 Einzelpositionen Maschinen</span>
+            <span class="tag">500+ Tonnen Papier</span>
+            <span class="tag">Komplette Räumung</span>
+            <a href="https://www.print.de/news-de/wirtschaft/allaoui-uebernimmt-den-maschinenpark-von-werbedruck-schreckhase/"
+              class="tag-dark">Pressebericht ↗</a>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-img-row">
+            <div><img src="images/Stürtz_Insolvenz_referenz.webp" alt="Stürtz GmbH – Außen" loading="lazy"></div>
+            <div><img src="images/Stürtz_Referenz.webp" alt="Stürtz GmbH – Maschine" loading="lazy"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">Stürtz GmbH, Würzburg</div>
+            <div class="ref-meta">Würzburg · 126 Maschinen</div>
+            <span class="tag">126 Maschinen</span><a
+              href="https://www.print.de/news-de/allaoui-graphic-machinery-uebernimmt-maschinenpark-von-stuertz/"
+              class="tag-dark">Pressebericht ↗</a>
+          </div>
+        </div>
+
+
+
+        <div class="ref-card">
+          <div class="ref-img-row">
+            <div><img src="images/tsb_insolvenz_referenz.webp" alt="TSB Bagel – Innen" loading="lazy"></div>
+            <div><img src="images/manroland_IV_96_bagel.webp" alt="TSB Bagel – Maschine" loading="lazy"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">TSB Bagel, Meineweh</div>
+            <div class="ref-meta">Meineweh · Weltweit größte Rollenoffset-Anlagen</div>
+            <span class="tag">Rollenoffset</span><span class="tag">Großanlage</span>
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-img-row">
+            <div><img src="images/QUBUSmedia_referenz.webp" alt="Qubus Media GmbH – Außen" loading="lazy"></div>
+            <div><img src="images/Heidelberg XL 106-8-P_qubus.webp" alt="Qubus Media GmbH – Innen" loading="lazy"></div>
+          </div>
+          <div class="ref-body">
+            <div class="ref-title">Qubus Media GmbH, Hamburg</div>
+            <div class="ref-meta">Übernahme des wesentlichen Maschinenparks</div>
+            <span class="tag">En-bloc</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BANNER -->
+  <div class="trust-banner">
+    <p>Vertraulichkeit ist für uns selbstverständlich.&nbsp;<span>Ihr Anliegen behandeln wir diskret und
+        professionell.</span></p>
+  </div>
+
+  <!-- PROZESS -->
+  <section id="ablauf" class="sec sec-alt">
+    <div class="wrap">
+      <span class="eyebrow" style="margin-bottom:8px;">Ablauf</span>
+      <h2 class="h2" style="margin-bottom:32px;">So arbeiten wir zusammen</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-col">
+            <div class="step-dot">1</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-head">Erstgespräch &amp; Bedarfsanalyse</div>
+            <p class="muted">Klärung Ihrer Situation, des Maschinenpark-Umfangs und Ihrer Zeitvorgaben.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-col">
+            <div class="step-dot">2</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-head">Besichtigung &amp; Bewertung vor Ort</div>
+            <p class="muted">Marktgerechte Bewertung auf Basis von 40.000+ Transaktionsdaten – schnell und präzise.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-col">
+            <div class="step-dot">3</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-head">Verbindliches Angebot &amp; Vertragsschluss</div>
+            <p class="muted">Kein Finanzierungsvorbehalt, keine Nachverhandlung. Planungssicherheit von Anfang an.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-col">
+            <div class="step-dot">4</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-head">Demontage &amp; fachgerechter Abtransport</div>
+            <p class="muted">Professionelles Team übernimmt Demontage und Transport aller Maschinen und Anlagen.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-col">
+            <div class="step-dot">5</div>
+          </div>
+          <div class="step-body">
+            <div class="step-head">Besenreine Übergabe der Immobilie</div>
+            <p class="muted">Vollständig geräumte Halle, protokolliert und dokumentiert. Immobilie sofort verwertbar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="sec">
+    <div class="wrap">
+      <span class="eyebrow" style="margin-bottom:8px;">FAQ</span>
+      <h2 class="h2" style="margin-bottom:8px;">Häufige Fragen</h2>
+      <p style="color:var(--cg);font-size:15px;margin-bottom:28px;">Antworten auf die Fragen, die Verwalter uns am
+        häufigsten stellen.</p>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">Wie schnell können Sie räumen? </div>
+          <p style="font-size:14px;color:var(--cg);line-height:1.65;">Unser Rekord: 5.000 qm in 2 Monaten.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Kaufen Sie auch einzelne Maschinen? </div>
+          <p style="font-size:14px;color:var(--cg);line-height:1.65;">Ja. Unsere Stärke ist der En-bloc-Erwerb. Bei
+            Einzelverkäufen beraten wir zur besten Strategie und Erlösmaximierung.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Wie läuft die Bewertung ab? </div>
+          <p style="font-size:14px;color:var(--cg);line-height:1.65;">Besichtigung vor Ort, Abgleich mit 40.000+
+            Transaktionsdaten, schriftliches Gutachten. Externe Sachverständige fragen bei uns die Marktwerte ab – wir
+            bieten das direkt.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Übernehmen Sie auch Nicht-Druckmaschinen? </div>
+          <p style="font-size:14px;color:var(--cg);line-height:1.65;">Spezialisierung auf Druck, Medien, Verpackung und
+            Weiterverarbeitung. Für andere Branchen empfehlen wir Partner aus unserem Netzwerk.</p>
+        </div>
+        <div class="faq-item" style="border-bottom:none;">
+          <div class="faq-q">Sind Sie versichert? </div>
+          <p style="font-size:14px;color:var(--cg);line-height:1.65;">Ja. Wir arbeiten mit Betriebshaftpflicht und
+            vollständig versicherter Abwicklung. Details gerne auf Anfrage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TAGLINE -->
+  <div style="background:#fff;padding:24px;text-align:center;border-top:1px solid var(--cb);">
+    <div style="font-size:clamp(1rem,3vw,1.6rem);font-weight:900;letter-spacing:-.02em;">
+      Innovate.&nbsp;<span style="color:var(--c1);">Impress.</span>&nbsp;<span style="color:var(--c2);">Inspire.</span>
+    </div>
+  </div>
+
+  <!-- KONTAKT -->
+  <section style="border-bottom: 1px solid #f7f9fc;" id="kontakt" class="sec sec-dark">
+    <div class="wrap contact-grid">
+      <div>
+        <span style="font-size:14px;font-weight:600;color:var(--c2);display:block;margin-bottom:12px;">Kontakt</span>
+        <h2
+          style="font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;color:#fff;letter-spacing:-.03em;margin-bottom:16px;line-height:1.1;">
+          Sprechen wir.<br><span style="color:var(--c1);">Unverbindlich.</span>
+        </h2>
+        <p style="color:rgba(255,255,255,.4);font-size:15px;line-height:1.7;">Vertraulichkeit ist selbstverständlich.
+          Ihr Anliegen behandeln wir diskret und professionell.</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Omar Allaoui</div>
+        <div class="contact-role">Mitglied der Geschäftsleitung, Allaoui Graphic Machinery GmbH</div>
+        <a href="tel:+492411892750" class="btn btn-blue" style="width:100%;margin-bottom:10px;">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+          +49 241 1892750
+        </a>
+        <a href="mailto:omar@allaoui.de" class="btn btn-ghost" style="width:100%;margin-bottom:20px;">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+          omar@allaoui.de
+        </a>
+        <div class="contact-info"><a href="https://www.allaoui.de" style="color:white" target="_blank"
+            rel="noopener noreferrer">🌐 www.allaoui.de</a><br>Nerscheider Weg 170 · 52076 Aachen, Deutschland</div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap footer-grid">
+      <div style="grid-column:1/-1;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+          <img style="width: 180px;" src="images/Allaoui_Logo_RGB_neg.png">
+        </div>
+        <div class="footer-head">Folgen Sie uns</div>
+        <div style="display:flex;gap:14px;">
+          <a href="https://www.linkedin.com/company/allaoui" target="_blank" rel="noopener noreferrer"
+            style="color:#9ca3af;">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/allaouigraphicmachinery" target="_blank" rel="noopener noreferrer"
+            style="color:#9ca3af;">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/user/AllaouiPrinting" target="_blank" rel="noopener noreferrer"
+            style="color:#9ca3af;">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
         </div>
       </div>
       <div>
-        <h3 class="text-white font-semibold mb-1">Über dieses Projekt</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">
-          Diese Seite enthält Landing-Page-Mockups für die Insolvenz-Kampagne der <strong class="text-white">Allaoui Graphic Machinery GmbH</strong>,
-          Aachen. Alle Varianten sind vollständig statische HTML-Seiten (kein Framework, kein Build-Tool) mit
-          Tailwind CSS via CDN. Platzhalter (Fotos, Telefon, E-Mail) sind noch zu befüllen.
-        </p>
-        <div class="mt-3 flex flex-wrap gap-3">
-          <a href="https://github.com/ahmadmortadi-web/druckerei-insol.de/tree/Allaoui" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            Repository
-          </a>
-          <span class="text-gray-700 text-xs">·</span>
-          <span class="text-xs text-gray-600">Branch: Allaoui · Stand: März 2026</span>
-        </div>
+        <div class="footer-head">Rechtliches</div>
+        <a target="_blank" href="https://allaoui.com/privacy-policy" class="footer-link">Datenschutzerklärung</a>
+        <a target="_blank" href="https://allaoui.com/imprint" class="footer-link">Impressum</a>
+      </div>
+      <div>
+        <div class="footer-head">Kontakt</div>
+        <div style="font-weight:700;color:#fff;font-size:14px;margin-bottom:2px;">Omar Allaoui</div>
+        <div style="font-size:12px;color:#6b7280;margin-bottom:14px;">Mitglied der Geschäftsführung</div>
+        <a href="mailto:omar@allaoui.de" class="footer-contact">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+          omar@allaoui.de
+        </a>
+        <a href="tel:+492411892750" class="footer-contact">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+          +49 241 1892750
+        </a>
       </div>
     </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-gray-800 px-6 py-6">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-gray-600">
-      <span>Allaoui Graphic Machinery GmbH · Nerscheider Weg 170, 52076 Aachen</span>
-      <span>GitHub Pages Preview · Branch: Allaoui</span>
+    <div class="wrap footer-bar">
+      <p style="font-size:13px;color:var(--c3);">© 2026 Allaoui Graphic Machinery GmbH. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
 
+  <script>
+    const sections = ['hero', 'argumente', 'referenzen', 'ablauf', 'faq', 'kontakt'];
+    const links = document.querySelectorAll('.float-nav a');
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.float-nav a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
 </body>
+
 </html>
